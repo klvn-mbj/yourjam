@@ -1,4 +1,4 @@
-# yousong
+# yourjam
 
 ## Project setup
 ```
