@@ -22,13 +22,14 @@ export default {
   data() {
     return {
         title: 'PLAYER',
-        vid: 0,
+        vid: 0,u
         index: 0,
         playlist: null,
         player: null,
         videoId: null,
         playerVars: {
-            autoplay: 1
+            autoplay: 1,
+playinline: 1
         },
         
     }
