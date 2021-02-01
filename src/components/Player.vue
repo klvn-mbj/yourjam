@@ -67,7 +67,8 @@ export default {
     // [EVENT - Ready]
     playerReady(e) {
       this.$emit("ready", e.target);
-      if (this.playerVars.autoplay) { 
+      if (this.playerVars.autoplay && this.playerVars.playsinline == 1) { 
+          alert(this.playerVars.playsinline);
           e.target.cuePlaylist({listType:'playlist',
             list:'PLC03fNjVR9tSxevqYxeHu9vbsHVOH7U4m',
             index:0,
