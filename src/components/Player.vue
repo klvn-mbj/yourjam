@@ -28,7 +28,8 @@ export default {
         player: null,
         videoId: null,
         playerVars: {
-            autoplay: 1
+            autoplay: 1,
+            playsinline: 1
         },
         
     }
