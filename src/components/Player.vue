@@ -27,8 +27,6 @@
 
       </div>
 
-       <button class="btn btn-danger mt-1 mr-1" @click="teste">BETA</button>
-
     </div>
 
 
@@ -248,7 +246,7 @@ export default {
 </script>
 
 <style scoped>
-* { padding: 0; margin: 0; }
+* { margin: 0; }
   youtube{ position: fixed; z-index: -1; }
 
   .player{ box-sizing: border-box; width: 450px; height: 290px;}
@@ -256,6 +254,6 @@ export default {
   h4 { font-size: 1.3rem; font-weight: bold; }
   #desc { font-size: 0.7rem; }
 
-  #thumb { height: 125px; }
+  #thumb { height: 125px; border-radius: 60px; }
 
 </style>
