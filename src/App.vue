@@ -1,9 +1,11 @@
 <template>
-<div id="app" class="d-flex justify-content-center align-items-center">
+<div id="app" class="d-flex flex-column justify-content-center align-items-center">
 
   <div id="body" class="container">
     <section-player/>
   </div>
+
+  
 
 </div>
 </template>
@@ -23,7 +25,7 @@ export default {
 #app {
   height: 100vh;
   width: 100vw;
-  background-color: whitesmoke;
+  background-color: white;
 }
 #body {
   height: 100%;

@@ -1,5 +1,6 @@
 <template>
-<div id="section-player d-flex justify-content-center align-items-center">
+<div>
+  <div id="section-player" class="p-5 d-flex justify-content-center align-items-center">
     <youtube :video-id="videoId" width=0 height=0 ref="youtube"/>
 
     <div class="player bg-light py-3 d-flex text-center align-items-center flex-column">
@@ -28,11 +29,9 @@
       </div>
 
     </div>
-
-
     <!--
       <h1 class="text-center">{{title}}</h1>
-     
+      
       <br>
       <button class="btn btn-primary mr-1" @click="previousJam">Previous</button>
       <button class="btn btn-primary mr-1" @click="playJam">play</button>
@@ -42,6 +41,11 @@
       <button class="btn btn-danger mt-1 mr-1" @click="teste">TESTE</button>
     -->
     
+  </div>
+
+  <div id="section-playlist" class=" d-flex justify-content-center align-items-center">
+      <section-playlist @update="playLoad" />
+  </div>
 </div>
 </template>
 
@@ -141,11 +145,11 @@ export default {
       });   
     },
 
-    // [NEXT]
+    // [PLAY]
     playJam() {
       this.player.playVideo()
     },
-    // [NEXT]
+    // [PAUSE]
     pauseJam() {
       this.player.pauseVideo()
     },
@@ -158,6 +162,16 @@ export default {
     previousJam() {
       this.player.previousVideo()
     },
+    // [LOAD]
+    playLoad(index) {
+      this.player.loadPlaylist({listType:'playlist',
+            list:'PLC03fNjVR9tSxevqYxeHu9vbsHVOH7U4m',
+                     index:index,
+                     suggestedQuality:'small'});
+
+      alert(index);
+    },
+
     // [CONTROL TIME]
     drStrange(){
       var newTime = this.tD * (this.progress/100);
@@ -215,7 +229,7 @@ export default {
 
     // [INFO]
     getJamTitle(item){
-      this.jam.title = item.snippet.title.substring(0, 25);
+      this.jam.title = item.snippet.title.substring(0, 35);
       this.jam.thumb = item.snippet.thumbnails.medium.url;
       this.jam.desc = item.snippet.description.substring(0, 70);
     },
@@ -246,10 +260,26 @@ export default {
 </script>
 
 <style scoped>
-* { margin: 0; }
+* { margin: 0;}
   youtube{ position: fixed; z-index: -1; }
 
-  .player{ box-sizing: border-box; width: 450px; height: 290px;}
+  #section-player { 
+    position: fixed; 
+    z-index: 1000; 
+    left: 0;
+    width: 100%;
+    background: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  #section-playlist { 
+    position: relative;
+    top: 200px
+  }
+
+  .player{  box-sizing: border-box; width: 450px; height: 290px;}
 
   h4 { font-size: 1.3rem; font-weight: bold; }
   #desc { font-size: 0.7rem; }
